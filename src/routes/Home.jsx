@@ -59,17 +59,13 @@ function Home() {
 
   // now we will filter the data based on the search input
   useEffect(() => {
-    // search can be in the category name or service name
     const newData = data.filter((category) => {
-      // check if the category name includes the search input
       if (category.category.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
-      // check if the service name includes the search input
       const services = category.services.filter((service) =>
         service.name.toLowerCase().includes(search.toLowerCase())
       );
-      // if the services array is not empty, then the category will be included in the filtered data
       if (services.length > 0) {
         return true;
       }
@@ -112,10 +108,10 @@ function Home() {
               <div
                 onClick={() => handleFilter(item.id)}
                 key={item.id}
-                className={`px-4 py-2  mx-1 cursor-pointer  `}
+                className={`px-3 py-2 cursor-pointer  `}
               >
                 <p
-                  className={` text-lg whitespace-nowrap font-semibold   ${
+                  className={` text-lg font-mono tracking-tighter whitespace-nowrap font-semibold   ${
                     selectedFilter === item.id
                       ? "text-orange-400 "
                       : " text-white"

@@ -6,9 +6,11 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { useCart } from "../context/CartContext";
 
 import React from "react";
 function Layout({ children }) {
+  const {getCartItemCount} = useCart()
   const navLinks = [
     {
       title: "Home",
@@ -103,14 +105,15 @@ function Layout({ children }) {
           </div>
         </NavLink>
         {navLinks.map((link) => (
+          <div className="relative" key={link.route}>
           <NavLink
           id="my-anchor-element-id" data-tooltip-content={link.title} 
             to={link.route}
             key={link.title}
             className={({ isActive }) =>
               isActive
-                ? "text-black w-[102px] duration-500 h-[100px] bg-[#252836] rounded-l-[12px] flex items-center justify-center relative"
-                : "text-black w-[102px] h-[100px] duration-500 flex rounded-r-[12px] items-center justify-center "
+                ? "text-black  w-[102px] duration-500 h-[100px] bg-[#252836] rounded-l-[12px] flex items-center justify-center relative"
+                : "text-black relative w-[102px] h-[100px] duration-500 flex rounded-r-[12px] items-center justify-center "
             }
           >
             {({ isActive }) =>
@@ -125,6 +128,14 @@ function Layout({ children }) {
               )
             }
           </NavLink>
+           {
+            link.route === "/cart"  && (
+              <div className="absolute top-8 left-4 bg-red-700 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center">
+                {getCartItemCount()}
+              </div>
+            )
+           }
+          </div>
         ))}
       </nav>
       <main className="w-full bg-[#252836] px-[10px] sm:px-[30px] h-full overflow-y-scroll ">
