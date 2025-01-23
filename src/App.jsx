@@ -4,6 +4,7 @@ import Dashboard from "./routes/Dashboard";
 import Cart from "./routes/Cart";
 import Notification from "./routes/Notification";
 import Setting from "./routes/Setting";
+import Payment from "./routes/Payment";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/cart"  element={<Cart/>} />
         <Route path="/notification" element={<Notification/>} />
         <Route path="/setting" element={<Setting/>} />
+        <Route path="/payment" element={<Payment/>} />
       </Routes>
     </>
   )

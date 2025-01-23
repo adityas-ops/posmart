@@ -1,14 +1,31 @@
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import { useCart } from "../context/CartContext";
 
 function Card({ service }) {
     // const increasePrice = service.price/0.35.toFixed(2);
     const { addToCart } = useCart();
+    
+    const successNotify = () => {
+        toast.success("Item added to cart", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+
 
   return (
     <div 
-    onClick={() => addToCart(service)}
-     className="w-full h-[400px] hover:scale-[1.01] cursor-pointer duration-300 bg-[#1F1D2B] shadow-[#2f2c3f] shadow-2xl border-[0.5px] border-gray-400 rounded-lg m-2">
+    onClick={() => {
+      addToCart(service)
+      successNotify()
+    }}
+     className="w-full h-[400px] -translate-y-0 hover:-translate-y-3 cursor-pointer duration-500 bg-[#1F1D2B] shadow-[#2f2c3f] shadow-2xl border-[0.5px] border-gray-400 rounded-lg m-2">
       <img
         src={service.imgLink}
         alt={service.name}
@@ -24,7 +41,7 @@ function Card({ service }) {
             </span>
             ${service.price}
         </p>
-        <button className="w-full bg-orange-400 text-white py-2 rounded-lg mt-2">
+        <button className="w-full cursor-pointer bg-orange-400 text-white py-2 rounded-lg mt-2">
           Add to Cart
         </button>
       </div>

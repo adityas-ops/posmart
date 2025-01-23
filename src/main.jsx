@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import { CartProvider } from "./context/CartContext.jsx";
+import { ToastContainer} from 'react-toastify';
 
 createRoot(document.getElementById("root")).render(
   <CartProvider>
@@ -12,5 +13,6 @@ createRoot(document.getElementById("root")).render(
         <App />
       </StrictMode>
     </BrowserRouter>
+    <ToastContainer />
   </CartProvider>
 );

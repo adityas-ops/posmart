@@ -130,7 +130,7 @@ function Layout({ children }) {
           </NavLink>
            {
             link.route === "/cart"  && (
-              <div className="absolute top-8 left-4 bg-red-700 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center">
+              <div className="absolute top-4 left-4 bg-red-700 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center">
                 {getCartItemCount()}
               </div>
             )
@@ -150,12 +150,19 @@ function Layout({ children }) {
             key={link.title}
             className={({ isActive }) =>
               isActive
-                ? " w-full  h-full duration-500  bg-orange-500 text-white  flex flex-col items-center justify-center relative  "
-                : " text-orange-500 w-full h-full  duration-500 flex  items-center justify-center flex-col "
+                ? " w-full   h-full duration-500  bg-orange-400 text-white  flex flex-col items-center justify-center relative  "
+                : " text-orange-400 relative w-full h-full  duration-500 flex  items-center justify-center flex-col "
             }
           >
             {link.svg}
             <p className=" text-[12px]">{link.title}</p>
+            {
+            link.route === "/cart"  && (
+              <div className="absolute top-1 right-1 bg-red-700 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center">
+                {getCartItemCount()}
+              </div>
+            )
+           }
           </NavLink>
         ))}
       </nav>
