@@ -109,13 +109,13 @@ function Layout({ children }) {
             key={link.title}
             className={({ isActive }) =>
               isActive
-                ? "text-black w-[102px] duration-500 h-[100px] bg-[#393C49] rounded-l-[12px] flex items-center justify-center relative"
+                ? "text-black w-[102px] duration-500 h-[100px] bg-[#252836] rounded-l-[12px] flex items-center justify-center relative"
                 : "text-black w-[102px] h-[100px] duration-500 flex rounded-r-[12px] items-center justify-center "
             }
           >
             {({ isActive }) =>
               isActive ? (
-                <div className="w-[56px] h-[56px] bg-orange-500 rounded-[8px] flex items-center justify-center text-white">
+                <div className="w-[56px] h-[56px] bg-orange-400 rounded-[8px] flex items-center justify-center text-white">
                   {link.svg}
                 </div>
               ) : (
@@ -127,7 +127,7 @@ function Layout({ children }) {
           </NavLink>
         ))}
       </nav>
-      <main className="w-full bg-[#393C49] px-[30px] h-full overflow-y-scroll ">
+      <main className="w-full bg-[#252836] px-[10px] sm:px-[30px] h-full overflow-y-scroll ">
         {children}
       </main>
       {/* for mobile navigation */}
