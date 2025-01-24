@@ -42,7 +42,7 @@ function Cart() {
         ) : (
           <div className="w-full  h-full flex sm:flex-row flex-col gap-[20px]   sm:gap-[50px] ">
             {/* cart */}
-            <div className="sm:h-full h-[120vh]  overflow-y-scroll">
+            <div className="sm:h-full h-[120vh] hideScrollBar  overflow-y-scroll">
               <div className=" w-full h-fit gap-[10px] sm:gap-[30px]  grid grid-cols-1 sm:grid-cols-3">
                 {cart.map((product) => (
                   <Card key={product.id} product={product} />
@@ -53,18 +53,18 @@ function Cart() {
             <div className=" z-30 w-full sm:w-[400px] h-[440px] sm:h-full">
               <div className="w-full justify-between h-[160px] bg-[#1F1D2B] border-[0.5px] border-gray-300 p-2 rounded-md flex flex-col  items-center">
                 <div className="mt-[10px] flex justify-center gap-[10px] items-center w-full">
-                  <h2 className="text-white text-2xl font-semibold">
+                  <h2 className="text-white sm:text-2xl text-xl ">
                     Total Sessions :
                   </h2>
-                  <h2 className="text-green-400 text-2xl text-center font-extrabold">
+                  <h2 className="text-green-400 sm:text-2xl text-xl text-center ">
                     {getCartItemCount()}
                   </h2>
                 </div>
                 <div className="mt-[10px] flex justify-center gap-[10px] items-center w-full">
-                  <h2 className="text-white text-2xl font-semibold">
+                  <h2 className="text-white sm:text-2xl text-xl ">
                     Total Price :
                   </h2>
-                  <h2 className="text-green-400 text-2xl text-center font-extrabold">
+                  <h2 className="text-green-400 sm:text-2xl text-xl text-center">
                     ${totalPrice}
                   </h2>
                 </div>
@@ -127,7 +127,7 @@ const Card = ({ product }) => {
           </p>
         </div>
       </div>
-      <div className="w-full px-[20px] mt-[10px] flex justify-between items-center">
+      <div className="w-full px-[20px] mt-[10px] flex justify-center gap-[10px] items-center">
         {/* remove */}
         <button
           className="h-[40px] cursor-pointer hover:scale-[1.02] duration-300 w-[40px] bg-red-500 text-white rounded-full items-center justify-center flex"
