@@ -29,7 +29,7 @@ function Cart() {
             </h2>
             <Link
               to="/"
-              className="w-full mt-[30px] max-w-[240px] mx-auto cursor-pointer flex items-center justify-center bg-orange-500 text-white py-2 rounded-lg "
+              className="w-full mt-[30px] max-w-[240px] mx-auto cursor-pointer flex items-center justify-center bg-[#EA7C69] text-white py-2 rounded-lg "
             >
               Go to Home
             </Link>
@@ -72,7 +72,7 @@ function Cart() {
                 <Link
                   to="/payment"
                   onClick={() => {}}
-                  className="w-full cursor-pointer flex items-center justify-center bg-orange-500 text-white py-2 rounded-lg mt-2"
+                  className="w-full cursor-pointer flex items-center justify-center bg-[#EA7C69] text-white py-2 rounded-lg mt-2"
                 >
                   Pay
                 </Link>

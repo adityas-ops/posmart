@@ -41,7 +41,7 @@ function Card({ service }) {
             </span>
             ${service.price}
         </p>
-        <button className="w-full cursor-pointer bg-orange-400 text-white py-2 rounded-lg mt-2">
+        <button className="w-full font-mono cursor-pointer bg-[#EA7C69]  text-white font-semibold py-3 rounded-lg mt-2">
           Add to Cart
         </button>
       </div>

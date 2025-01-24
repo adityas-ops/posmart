@@ -78,9 +78,9 @@ function Home() {
     <Layout>
       <div className=" w-full h-full overflow-hidden ">
         {/* name and search */}
-        <div className=" w-full flex sm:flex-row flex-col-reverse justify-between items-center py-[20px]  sm:py-[30px]">
+        <div className=" w-full flex sm:flex-row flex-col-reverse justify-between items-center py-[10px]  sm:py-[30px]">
           {/* name and location */}
-          <div className="flex sm:flex-col items-center justify-between flex-row w-full sm:w-fit mt-2 sm:mt-0">
+          <div className="flex sm:flex-col items-center justify-between flex-row w-full sm:w-fit mt-3 sm:mt-1">
             <h1 className="sm:text-[28px] text-[22px] font-mono tracking-tight text-gray-100">
               Jaegar Resto
             </h1>
@@ -101,31 +101,37 @@ function Home() {
             />
           </div>
         </div>
-        {/*  filter and data */}
-        <div className=" w-full hideScrollBar overflow-x-scroll h-[50px] flex justify-start items-center">
+        {/*  filter and data */} 
+        <div className=" sm:px-[40px]   w-full hideScrollBar overflow-x-scroll h-[60px] flex justify-start items-center">
           {filter.map((item) => {
             return (
               <div
                 onClick={() => handleFilter(item.id)}
                 key={item.id}
-                className={`px-3 py-2 cursor-pointer  `}
+                className={`px-5 my-2 py-2 cursor-pointer border border-zinc-400 rounded-lg mr-4
+                ${
+                  selectedFilter === item.id
+                    ? "bg-[#EA7C69] border-orange-400"
+                    : "bg-transparent"
+                }
+                `}
               >
                 <p
-                  className={` text-lg font-mono tracking-tighter whitespace-nowrap font-semibold   ${
+                  className={` text-base font-mono tracking-tighter whitespace-nowrap font-semibold   ${
                     selectedFilter === item.id
-                      ? "text-orange-400 "
+                      ? "text-white "
                       : " text-white"
                   }`}
                 >
                   {item.name}
                 </p>
-                <div
+                {/* <div
                   className={`w-[70%] mt-1 h-[3px] rounded-lg ${
                     selectedFilter === item.id
                       ? "bg-orange-400"
                       : " bg-transparent"
                   }`}
-                />
+                /> */}
               </div>
             );
           })}

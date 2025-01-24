@@ -10,7 +10,7 @@ import { useCart } from "../context/CartContext";
 
 import React from "react";
 function Layout({ children }) {
-  const {getCartItemCount} = useCart()
+  const { getCartItemCount } = useCart();
   const navLinks = [
     {
       title: "Home",
@@ -106,35 +106,34 @@ function Layout({ children }) {
         </NavLink>
         {navLinks.map((link) => (
           <div className="relative" key={link.route}>
-          <NavLink
-          id="my-anchor-element-id" data-tooltip-content={link.title} 
-            to={link.route}
-            key={link.title}
-            className={({ isActive }) =>
-              isActive
-                ? "text-black  w-[102px] duration-500 h-[100px] bg-[#252836] rounded-l-[12px] flex items-center justify-center relative"
-                : "text-black relative w-[102px] h-[100px] duration-500 flex rounded-r-[12px] items-center justify-center "
-            }
-          >
-            {({ isActive }) =>
-              isActive ? (
-                <div className="w-[56px] h-[56px] bg-orange-400 rounded-[8px] flex items-center justify-center text-white">
-                  {link.svg}
-                </div>
-              ) : (
-                <div  className="w-[56px] h-[56px]  rounded-[8px] flex items-center justify-center text-white">
-                  {link.svg}
-                </div>
-              )
-            }
-          </NavLink>
-           {
-            link.route === "/cart"  && (
+            <NavLink
+              id="my-anchor-element-id"
+              data-tooltip-content={link.title}
+              to={link.route}
+              key={link.title}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-black  w-[102px] duration-500 h-[100px] bg-[#252836] rounded-l-[12px] flex items-center justify-center relative"
+                  : "text-black relative w-[102px] h-[100px] duration-500 flex rounded-r-[12px] items-center justify-center "
+              }
+            >
+              {({ isActive }) =>
+                isActive ? (
+                  <div className="w-[56px] h-[56px] bg-[#EA7C69] rounded-[8px] flex items-center justify-center text-white">
+                    {link.svg}
+                  </div>
+                ) : (
+                  <div className="w-[56px] h-[56px]  rounded-[8px] flex items-center justify-center text-white">
+                    {link.svg}
+                  </div>
+                )
+              }
+            </NavLink>
+            {link.route === "/cart" && (
               <div className="absolute top-4 left-4 bg-red-700 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center">
                 {getCartItemCount()}
               </div>
-            )
-           }
+            )}
           </div>
         ))}
       </nav>
@@ -142,35 +141,32 @@ function Layout({ children }) {
         {children}
       </main>
       {/* for mobile navigation */}
-      <nav className="w-full h-[60px] z-50 fixed bottom-0 left-0 right-0 bg-[#1F1D2B] flex items-center justify-between gap-x-[4px] sm:hidden ">
+      <nav className="w-full border-t-[2px] border-white h-[60px] z-50 fixed bottom-0 left-0 right-0 bg-[#1F1D2B] flex items-center justify-between gap-x-[4px] sm:hidden ">
         {navLinks.map((link) => (
           <NavLink
-          
             to={link.route}
             key={link.title}
             className={({ isActive }) =>
               isActive
-                ? " w-full   h-full duration-500  bg-orange-400 text-white  flex flex-col items-center justify-center relative  "
-                : " text-orange-400 relative w-full h-full  duration-500 flex  items-center justify-center flex-col "
+                ? " w-full   h-full duration-500 text-white  bg-[#EA7C69]  flex flex-col items-center justify-center relative  "
+                : " text-[#EA7C69] relative w-full h-full  duration-500 flex  items-center justify-center flex-col "
             }
           >
             {link.svg}
-            <p className=" text-[12px]">{link.title}</p>
-            {
-            link.route === "/cart"  && (
+            <p className="text-[12px] font-semibold">{link.title}</p>
+            {link.route === "/cart" && (
               <div className="absolute top-1 right-1 bg-red-700 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center">
                 {getCartItemCount()}
               </div>
-            )
-           }
+            )}
           </NavLink>
         ))}
       </nav>
-      <Tooltip  
-      anchorSelect="#my-anchor-element-id"
-      place="right"
-      style={{ backgroundColor: "#FF6900", color: "#fff" }}
-       />
+      <Tooltip
+        anchorSelect="#my-anchor-element-id"
+        place="right"
+        style={{ backgroundColor: "#FF6900", color: "#fff" }}
+      />
     </div>
   );
 }
