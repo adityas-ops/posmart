@@ -102,7 +102,7 @@ function Home() {
           </div>
         </div>
         {/*  filter and data */}
-        <div className=" w-full overflow-x-scroll h-[50px] flex justify-start items-center">
+        <div className=" w-full hideScrollBar overflow-x-scroll h-[50px] flex justify-start items-center">
           {filter.map((item) => {
             return (
               <div
@@ -130,7 +130,7 @@ function Home() {
             );
           })}
         </div>
-        <div className=" w-full h-full pb-[300px] sm:pb-[200px] mt-[20px] overflow-y-scroll">
+        <div className=" w-full h-full pb-[300px] hideScrollBar sm:pb-[200px] mt-[20px] overflow-y-scroll">
           <div className=" w-full grid grid-cols-1 sm:grid-cols-4 pr-4 gap-[20px]">
             {filteredData.map((category) => {
               return category.services.map((service) => {

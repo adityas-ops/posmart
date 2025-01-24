@@ -138,7 +138,7 @@ function Layout({ children }) {
           </div>
         ))}
       </nav>
-      <main className="w-full bg-[#252836] px-[10px] sm:px-[30px] h-full overflow-y-scroll ">
+      <main className="w-full bg-[#252836] px-[10px] sm:px-[30px] hideScrollBar h-full overflow-y-scroll ">
         {children}
       </main>
       {/* for mobile navigation */}

@@ -38,7 +38,6 @@ function Cart() {
               className=" sm:w-[60%] sm:h-[60%] object-contain"
               alt="Empty Cart"
             />
-           
           </div>
         ) : (
           <div className="w-full  h-full flex sm:flex-row flex-col gap-[20px]   sm:gap-[50px] ">
